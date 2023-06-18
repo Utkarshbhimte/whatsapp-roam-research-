@@ -54,8 +54,9 @@ const handler = async (req, res) => {
         await roam.createBlock(input, dailyNoteId)
 
         await sendMessage(req.body.To, `👍`)
-        res.status(200).json({ ok: false })
         console.log(`added ${input}`)
+
+        res.status(200).json({ ok: false })
     } catch (error) {
         console.error(error)
         await sendMessage(req.body.To, `There was some error: ${error.message}`)
